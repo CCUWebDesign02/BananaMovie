@@ -7,7 +7,7 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
             <div id="my-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <?php
-                        for($i = 0; $i < count($index_res[carousel]); $i++) {
+                        for($i = 0; $i < count($index_res['carousel']); $i++) {
                             echo '<li data-target="#ad-carousel" data-slide-to="'. $i .'"';
                             if($i == 0) {
                                 echo ' class="active"';
@@ -19,13 +19,13 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                 <div class="carousel-inner" role="listbox">
                     <?php
                         $i = 0;
-                        foreach($index_res[carousel] as $val) {
+                        foreach($index_res['carousel'] as $val) {
                             //echo '<a href="'. $val[url] .'">';
                             echo '<div class="carousel-item';
                             if($i == 0) {
                                 echo ' active';
                             }
-                            echo '"><a href="' . $val[url] . '"><img class="d-block img-fluid" src="imgs/movie/' . $val[src] . '" alt="'. $val[en_name] . '"/></a></div>';
+                            echo '"><a href="' . $val['url'] . '"><img class="d-block img-fluid" src="imgs/movie/' . $val['src'] . '" alt="'. $val['en_name'] . '"/></a></div>';
                             $i++;
                         }
                     ?>
@@ -50,7 +50,7 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
             <div class="row">
                 <?php
                     for($i = 0; $i < 3; $i++) {
-                        $movie = $index_res[now_showing][$i];
+                        $movie = $index_res['now_showing'][$i];
                         $release_time = new \DateTime($movie->released, new \DateTimeZone("UTC"));
                         $release_time->setTimezone(new \DateTimeZone(TIMEZONE));
                         $release_time_str = $release_time->format('Y-m-d');

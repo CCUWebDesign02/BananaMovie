@@ -30,25 +30,25 @@ class Movie extends DataFactory{
 	public function updateInfo() {
 		$q = $this->getDB()->query("SELECT * FROM movies WHERE id = $this->id");
 		$row = $q->fetch();
-		$this->zh_name = $row[zh_name];
-		$this->en_name = $row[en_name];
-		$this->duration = $row[duration];
-		$this->rating = $row[rating];
-		$this->released = $row[released];
-		$this->director = $row[director];
-		$this->actors = $row[actors];
-		$this->intro = $row[intro];
-		$this->trailer_url = $row[trailer_url];
+		$this->zh_name = $row['zh_name'];
+		$this->en_name = $row['en_name'];
+		$this->duration = $row['duration'];
+		$this->rating = $row['rating'];
+		$this->released = $row['released'];
+		$this->director = $row['director'];
+		$this->actors = $row['actors'];
+		$this->intro = $row['intro'];
+		$this->trailer_url = $row['trailer_url'];
 	}
 
 	public function updateResource() {
 		$q = $this->getDB()->query("SELECT type, src FROM movie_resource WHERE movie_id = $this->id");
 		while($row = $q->fetch()) {
-			if(strcasecmp($row[type], 'banner') == 0) {
-				$this->banner = $row[src];
+			if(strcasecmp($row['type'], 'banner') == 0) {
+				$this->banner = $row['src'];
 			}
-			elseif(strcasecmp($row[type], 'poster') == 0) {
-				$this->poster = $row[src];
+			elseif(strcasecmp($row['type'], 'poster') == 0) {
+				$this->poster = $row['src'];
 			}
 		}
 	}
@@ -61,7 +61,7 @@ class Movie extends DataFactory{
 		$nowStr = $now->format('Y-m-d H:i:s');
 		$q = $db->query("SELECT id FROM movies WHERE released <= '$nowStr' ORDER BY released DESC");
 		while($row = $q->fetch()) {
-			array_push($nowShowing, new \Data\Movie($row[id]));
+			array_push($nowShowing, new \Data\Movie($row['id']));
 		}
 		return $nowShowing;
 	}
@@ -74,7 +74,7 @@ class Movie extends DataFactory{
 		$nowStr = $now->format('Y-m-d H:i:s');
 		$q = $db->query("SELECT id FROM movies WHERE released > '$nowStr' ORDER BY released ASC");
 		while($row = $q->fetch()) {
-			array_push($nextStage, new \Data\Movie($row[id]));
+			array_push($nextStage, new \Data\Movie($row['id']));
 		}
 		return $nextStage;
 	}

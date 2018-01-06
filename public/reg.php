@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../autoload.php');
 use \Auth\Register;
 
 $user = array(
-	'account' => 'nana',
+	'account' => 'hihi',
 	'password' => '123456', //密碼長度>=6
 	'name' => 'nana',
 	'email' => 'nana@example.com'

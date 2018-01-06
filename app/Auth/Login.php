@@ -24,14 +24,14 @@ class Login {
 		if($row == null) { //無此帳號
 			return false;
 		}
-		$this->id = $row[id];
+		$this->id = $row['id'];
 		//echo $this->password;
-		$password_hash = $row[password];
+		$password_hash = $row['password'];
 		if(password_verify($this->password, $password_hash)) { //驗證密碼
 			$this->grantToken();
 			$this->updateUser();
 			session_start();
-			$_SESSION[user_token] = $this->token;
+			$_SESSION['user_token'] = $this->token;
 
 			return true;
 		}
