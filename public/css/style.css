@@ -161,6 +161,10 @@ header .row:last-child .col-12 a:hover {
 .now-release .media img {
     width: 110px;
 }
+.now-release a[href] img, .future-release a[href] img {
+    width: 270px;
+    height: 400px;
+}
 
 .now-release .media-body {
     padding-left: 20px;
