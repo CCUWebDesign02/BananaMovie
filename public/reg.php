@@ -1,0 +1,13 @@
+<?php
+require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'environment.php');
+require_once(__DIR__ . '/../autoload.php');
+
+use \Auth\Register;
+
+$user = array(
+	'account' => 'nana',
+	'password' => '123456', //密碼長度>=6
+	'name' => 'nana',
+	'email' => 'nana@example.com'
+);
+\Auth\Register::newUser($user);
