@@ -112,8 +112,8 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                     <table>
                         <?php
                         for($i = 0; $i < 10; $i++) {
-                            $motd = $index_res['motd'][$i];
-                            if(isset($motd)) {
+                            if(isset($index_res['motd'][$i])) {
+                                $motd = $index_res['motd'][$i];
                                 $motd_time = new \DateTime($motd->created_at, new \DateTimeZone("UTC"));
                                 $motd_time->setTimezone(new \DateTimeZone(TIMEZONE));
                                 $motd_time_str = $motd_time->format('Y-m-d');
@@ -121,9 +121,6 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                                     <td>' . $motd_time_str . '</td>
                                     <td>' . $motd->title . '</td>
                                     </tr>';
-                            }
-                            else {
-                                echo '<tr><td></td><td></td></tr>';
                             }
                         }
                         ?>
