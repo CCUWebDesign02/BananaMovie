@@ -57,11 +57,11 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                         //$movie_release = new \DateTime($movie->release, $)
 
                         echo '<div class="col-4 d-flex flex-wrap justify-content-center">
-                            <a href="movie_intro.php?id=' . $movie->id . '"><img src="imgs/movie/'. $movie->poster .'" /></a>
+                            <a href="movie_intro.php?id=' . intval($movie->id) . '"><img src="imgs/movie/'. $movie->poster . '" alt="' . $movie->en_name . '"/></a>
                             <div class="media ">
                                 <img src="imgs/rating-' . $movie->rating . '.png" />
                                 <div class="media-body align-self-center movie-title">
-                                    <a href="./movie_intro.php?id=' . $movie->id . '">
+                                    <a href="./movie_intro.php?id=' . intval($movie->id) . '">
                                         <div>' . $movie->zh_name . '</div>
                                         <div>' . $release_time_str . '</div>
                                     </a>
@@ -80,17 +80,26 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                 <hr />
             </div>
             <div class="row">
-                <div class="col d-flex justify-content-center">
-                    <div>
-                        <a href=""><img src="imgs/縮小人生-small.jpeg" /></a>
-                        <div class="movie-title">
-                            <a href="#">
-                                <div class="text-center">縮小人生</div>
-                                <div class="text-center">2018/01/19</div>
-                            </a>
+                <?php
+                for($i = 0; $i < 1; $i++) {
+                    $movie = $index_res['next_stage'][$i];
+                    $release_time = new \DateTime($movie->released, new \DateTimeZone("UTC"));
+                    $release_time->setTimezone(new \DateTimeZone(TIMEZONE));
+                    $release_time_str = $release_time->format('Y-m-d');
+
+                    echo '<div class="col d-flex justify-content-center">
+                        <div>
+                            <a href="./movie_intro.php?id=' . intval($movie->id) . '"><img src="imgs/movie/' . $movie->poster . '" alt="' . $movie->en_name . '"/></a>
+                            <div class="movie-title">
+                                <a href="#">
+                                    <div class="text-center">' . $movie->zh_name . '</div>
+                                    <div class="text-center">' . $release_time_str . '</div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>';
+                }
+                ?>
             </div>
         </div>
         <div class="col-7 motd">
@@ -101,46 +110,18 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
             <div class="row">
                 <div class="col d-flex justify-content-center">
                     <table>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/27</td>
-                            <td>你上車了嗎？來看電影送521號公車票！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/26</td>
-                            <td>玉山聯名卡加碼送！活動只到明年3/1！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/24</td>
-                            <td>聖誕慶祝！情侶雙人套票大優惠！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/17</td>
-                            <td>單身過聖誕不難過！看電影送香蕉！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/11</td>
-                            <td>來香蕉影城帶香蕉 及享電影票買一送一優惠！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/08</td>
-                            <td>歌喉讚最終力作!12/27 美聲女力 終極對決</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/12/01</td>
-                            <td>來香蕉影城刷國泰世華卡 即送香蕉一串！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/11/23</td>
-                            <td>香蕉老闆作功德！即日起所有票種調降10元！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/11/17</td>
-                            <td>香蕉影城11周年慶！來看電影就送香蕉！</td>
-                        </tr>
-                        <tr onclick="location.href='#'">
-                            <td>2017/11/10</td>
-                            <td>你最光棍！光棍節單人看電影只要111元！</td>
-                        </tr>
+                        <?php
+                        for($i = 0; $i < 10; $i++) {
+                            $motd = $index_res['motd'][$i];
+                            $motd_time = new \DateTime($motd->created_at, new \DateTimeZone("UTC"));
+                            $motd_time->setTimezone(new \DateTimeZone(TIMEZONE));
+                            $motd_time_str = $motd_time->format('Y-m-d');
+                            echo '<tr onclick="location.href=\'./motd.php?id=' . intval($motd->id) . '\'">
+                                <td>' . $motd_time_str . '</td>
+                                <td>' . $motd->title . '</td>
+                            </tr>';
+                        }
+                        ?>
                     </table>
                 </div>
             </div>

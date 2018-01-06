@@ -38,7 +38,9 @@ header .row:last-child .col-12 a:hover {
 .logo span:nth-child(3) {
     font-size: 28px;
 }
-
+.icon{
+    margin-left: -10%;
+}
 .topicon {
     margin-top: 5%;
 }

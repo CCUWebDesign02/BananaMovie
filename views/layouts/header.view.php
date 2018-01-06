@@ -19,8 +19,8 @@
                         <div class="col-2 logo align-items-center">
                             <a href="/"><img src="imgs/logo.png" alt=""></a>
                         </div>
-                        <div class="col-5"></div>
-                        <div class="col-5 topicon">
+                        <div class="col-6"></div>
+                        <div class="col-4 topicon">
                             <div class="row">
                                 <div class="icon">
                             <ul class="socialIcons">
