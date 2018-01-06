@@ -9,7 +9,7 @@ class Res {
 	public static function index() {
 		$dbFactory = new DataFactory();
 		$db = $dbFactory->getDB();
-		if($_SESSION[token]) {
+		if(isset($_SESSION[token])) {
 
 		}
 		$q = $db->query(
