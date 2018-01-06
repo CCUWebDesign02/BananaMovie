@@ -22,6 +22,7 @@ class Res {
 
 		$nowShowing = \Data\Movie::nowShowing();
 		$nextStage = \Data\Movie::nextStage();
+		$motd = '';
 		return array(
 			'carousel' => $carousel,
 			'now_showing' => $nowShowing,
