@@ -4,7 +4,7 @@ require_once(__DIR__ . '/../autoload.php');
 
 use Auth\Login;
 
-$user = new Login($_POST[account], $_POST[password]);
+$user = new Login($_POST['account'], $_POST['password']);
 if($user->validate()) {
 	echo "Success";
 }
