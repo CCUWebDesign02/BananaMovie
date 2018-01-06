@@ -55,13 +55,12 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                     $release_time->setTimezone(new \DateTimeZone(TIMEZONE));
                     $release_time_str = $release_time->format('Y-m-d');
                     //$movie_release = new \DateTime($movie->release, $)
-
                     echo '<div class="col-4 d-flex flex-wrap justify-content-center">
-                        <a href="movie_intro.php?id=' . intval($movie->id) . '"><img src="imgs/movie/'. $movie->poster . '" alt="' . $movie->en_name . '"/></a>
+                        <a href="movie_intro.php?id=' . str_replace("'", "", $movie->id) . '"><img src="imgs/movie/'. $movie->poster . '" alt="' . $movie->en_name . '"/></a>
                         <div class="media ">
                             <img src="imgs/rating-' . $movie->rating . '.png" />
                             <div class="media-body align-self-center movie-title">
-                                <a href="./movie_intro.php?id=' . intval($movie->id) . '">
+                                <a href="./movie_intro.php?id=' . str_replace("'", "", $movie->id) . '">
                                     <div>' . $movie->zh_name . '</div>
                                     <div>' . $release_time_str . '</div>
                                 </a>
@@ -89,7 +88,7 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
 
                     echo '<div class="col d-flex justify-content-center">
                         <div>
-                            <a href="./movie_intro.php?id=' . intval($movie->id) . '"><img src="imgs/movie/' . $movie->poster . '" alt="' . $movie->en_name . '"/></a>
+                            <a href="./movie_intro.php?id=' . str_replace("'", "", $movie->id) . '"><img src="imgs/movie/' . $movie->poster . '" alt="' . $movie->en_name . '"/></a>
                             <div class="movie-title">
                                 <a href="#">
                                     <div class="text-center">' . $movie->zh_name . '</div>
@@ -117,7 +116,7 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                                 $motd_time = new \DateTime($motd->created_at, new \DateTimeZone("UTC"));
                                 $motd_time->setTimezone(new \DateTimeZone(TIMEZONE));
                                 $motd_time_str = $motd_time->format('Y-m-d');
-                                echo '<tr onclick="location.href=\'./motd.php?id=' . intval($motd->id) . '\'">
+                                echo '<tr onclick="location.href=\'./motd.php?id=' . str_replace("'", "", $motd->id) . '\'">
                                     <td>' . $motd_time_str . '</td>
                                     <td>' . $motd->title . '</td>
                                     </tr>';
