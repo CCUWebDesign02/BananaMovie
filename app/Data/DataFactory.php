@@ -16,6 +16,7 @@ class DataFactory {
 			$dsn = sprintf("%s:host=%s;port=%s;dbname=%s", $config['DB_CONNECTION'], $config['DB_HOST'], $config['DB_PORT'], $config['DB_DATABASE']);
 			$this->db = new \PDO($dsn, $config['DB_USERNAME'], $config['DB_PASSWORD']);
 			$this->db->exec("SET time_zone = 'UTC'");
+			$this->db->exec("SET NAMES UTF8");
 			$this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			//echo 'success';
 		}
