@@ -6,20 +6,29 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
         <div class="col">
             <div id="my-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#ad-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#ad-carouse" data-slide-to="1"></li>
-                    <li data-target="#ad-carouse" data-slide-to="2"></li>
+                    <?php
+                        for($i = 0; $i < count($index_res[carousel]); $i++) {
+                            echo '<li data-target="#ad-carousel" data-slide-to="'. $i .'"';
+                            if($i == 0) {
+                                echo ' class="active"';
+                            }
+                            echo '></li>';
+                        }
+                    ?>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="imgs/歌喉讚3-BIG.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" src="imgs/與神同行-BIG.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" src="imgs/大娛樂家-BIG.jpg" alt="Third slide">
-                    </div>
+                    <?php
+                        $i = 0;
+                        foreach($index_res[carousel] as $val) {
+                            //echo '<a href="'. $val[url] .'">';
+                            echo '<div class="carousel-item';
+                            if($i == 0) {
+                                echo ' active';
+                            }
+                            echo '"><a href="' . $val[url] . '"><img class="d-block img-fluid" src="imgs/movie/' . $val[src] . '" alt="'. $val[en_name] . '"/></a></div>';
+                            $i++;
+                        }
+                    ?>
                 </div>
                 <a class="carousel-control-prev" href="#my-carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -39,42 +48,28 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
                 <hr />
             </div>
             <div class="row">
-                <div class="col-4 d-flex flex-wrap justify-content-center">
-                    <a href="#"><img src="imgs/歌喉讚3-small.jpeg" /></a>
-                    <div class="media ">
-                        <img src="imgs/保護級.png" />
-                        <div class="media-body align-self-center movie-title">
-                            <a href="#">
-                                <div>歌喉讚3</div>
-                                <div>2017/12/27</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 d-flex flex-wrap justify-content-center">
-                    <a href="#"><img src="imgs/與神同行-small.jpeg" /></a>
-                    <div class="media">
-                        <img src="imgs/輔導12級.png" />
-                        <div class="media-body align-self-center movie-title">
-                            <a href="#">
-                                <div>與神同行</div>
-                                <div>2017/12/22</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 d-flex flex-wrap justify-content-center">
-                    <a href="#"><img src="imgs/大娛樂家-small.jpeg" /></a>
-                    <div class="media">
-                        <img src="imgs/普遍級.png" />
-                        <div class="media-body align-self-center movie-title">
-                            <a href="#">
-                                <div>大娛樂家</div>
-                                <div>2017/12/20</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                    for($i = 0; $i < 3; $i++) {
+                        $movie = $index_res[now_showing][$i];
+                        $release_time = new \DateTime($movie->released, new \DateTimeZone("UTC"));
+                        $release_time->setTimezone(new \DateTimeZone(TIMEZONE));
+                        $release_time_str = $release_time->format('Y-m-d');
+                        //$movie_release = new \DateTime($movie->release, $)
+
+                        echo '<div class="col-4 d-flex flex-wrap justify-content-center">
+                            <a href="movie_intro.php?id=' . $movie->id . '"><img src="imgs/movie/'. $movie->poster .'" /></a>
+                            <div class="media ">
+                                <img src="imgs/rating-' . $movie->rating . '.png" />
+                                <div class="media-body align-self-center movie-title">
+                                    <a href="./movie_intro.php?id=' . $movie->id . '">
+                                        <div>' . $movie->zh_name . '</div>
+                                        <div>' . $release_time_str . '</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>';
+                    }
+                ?>
             </div>
         </div>
     </div>
