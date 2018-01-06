@@ -19,11 +19,24 @@ function post_to_url(path, params, method) {
     document.body.appendChild(form);    // Not entirely sure if this is necessary
     form.submit();
 }
-$('#login-popup-box .modal-body button').click(function(event){
+/*$('#login-popup-box .modal-body button').click(function(event){
     post_to_url('./login.php', 
         {
             'account' : $('input[name="account"]').val(), 
             'password' : $('input[name="password"]').val()
         }, 
         'POST');
-}); 
+}); */
+$('#login-popup-box .modal-body button').click(function(event) {
+    $.post("./login.php", 
+    {
+        'account' : $('input[name="account"]').val(), 
+        'password' : $('input[name="password"]').val()
+    },
+    function (data, status) {
+        //$("#myText").text("Data: " + data + " Status: " + status);
+        console.log("Status: " + status);
+        console.log(data);
+        //console.log(data[code])
+    });
+});

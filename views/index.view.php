@@ -7,27 +7,27 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
             <div id="my-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <?php
-                        for($i = 0; $i < count($index_res['carousel']); $i++) {
-                            echo '<li data-target="#ad-carousel" data-slide-to="'. $i .'"';
-                            if($i == 0) {
-                                echo ' class="active"';
-                            }
-                            echo '></li>';
+                    for($i = 0; $i < count($index_res['carousel']); $i++) {
+                        echo '<li data-target="#ad-carousel" data-slide-to="'. $i .'"';
+                        if($i == 0) {
+                            echo ' class="active"';
                         }
+                        echo '></li>';
+                    }
                     ?>
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <?php
-                        $i = 0;
-                        foreach($index_res['carousel'] as $val) {
-                            //echo '<a href="'. $val[url] .'">';
-                            echo '<div class="carousel-item';
-                            if($i == 0) {
-                                echo ' active';
-                            }
-                            echo '"><a href="' . $val['url'] . '"><img class="d-block img-fluid" src="imgs/movie/' . $val['src'] . '" alt="'. $val['en_name'] . '"/></a></div>';
-                            $i++;
+                    $i = 0;
+                    foreach($index_res['carousel'] as $val) {
+                        //echo '<a href="'. $val[url] .'">';
+                        echo '<div class="carousel-item';
+                        if($i == 0) {
+                            echo ' active';
                         }
+                        echo '"><a href="' . $val['url'] . '"><img class="d-block img-fluid" src="imgs/movie/' . $val['src'] . '" alt="'. $val['en_name'] . '"/></a></div>';
+                        $i++;
+                    }
                     ?>
                 </div>
                 <a class="carousel-control-prev" href="#my-carousel" role="button" data-slide="prev">
@@ -49,26 +49,26 @@ https://coolors.co/e9eb87-e2dbbe-7fb7be-d3f3ee-241623-->
             </div>
             <div class="row">
                 <?php
-                    for($i = 0; $i < 3; $i++) {
-                        $movie = $index_res['now_showing'][$i];
-                        $release_time = new \DateTime($movie->released, new \DateTimeZone("UTC"));
-                        $release_time->setTimezone(new \DateTimeZone(TIMEZONE));
-                        $release_time_str = $release_time->format('Y-m-d');
-                        //$movie_release = new \DateTime($movie->release, $)
+                for($i = 0; $i < 3; $i++) {
+                    $movie = $index_res['now_showing'][$i];
+                    $release_time = new \DateTime($movie->released, new \DateTimeZone("UTC"));
+                    $release_time->setTimezone(new \DateTimeZone(TIMEZONE));
+                    $release_time_str = $release_time->format('Y-m-d');
+                    //$movie_release = new \DateTime($movie->release, $)
 
-                        echo '<div class="col-4 d-flex flex-wrap justify-content-center">
-                            <a href="movie_intro.php?id=' . intval($movie->id) . '"><img src="imgs/movie/'. $movie->poster . '" alt="' . $movie->en_name . '"/></a>
-                            <div class="media ">
-                                <img src="imgs/rating-' . $movie->rating . '.png" />
-                                <div class="media-body align-self-center movie-title">
-                                    <a href="./movie_intro.php?id=' . intval($movie->id) . '">
-                                        <div>' . $movie->zh_name . '</div>
-                                        <div>' . $release_time_str . '</div>
-                                    </a>
-                                </div>
+                    echo '<div class="col-4 d-flex flex-wrap justify-content-center">
+                        <a href="movie_intro.php?id=' . intval($movie->id) . '"><img src="imgs/movie/'. $movie->poster . '" alt="' . $movie->en_name . '"/></a>
+                        <div class="media ">
+                            <img src="imgs/rating-' . $movie->rating . '.png" />
+                            <div class="media-body align-self-center movie-title">
+                                <a href="./movie_intro.php?id=' . intval($movie->id) . '">
+                                    <div>' . $movie->zh_name . '</div>
+                                    <div>' . $release_time_str . '</div>
+                                </a>
                             </div>
-                        </div>';
-                    }
+                        </div>
+                    </div>';
+                }
                 ?>
             </div>
         </div>

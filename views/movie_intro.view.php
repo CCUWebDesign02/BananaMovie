@@ -1,4 +1,4 @@
-<div class="inproduce">
+<div class="container inproduce">
     <div class="buying">
         <div class="row">
             <div class="col-md-4">
