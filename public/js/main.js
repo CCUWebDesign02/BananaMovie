@@ -40,3 +40,6 @@ $('#login-popup-box .modal-body button').click(function(event) {
         //console.log(data[code])
     });
 });
+function calPrice(val) {
+    document.getElementById("price").innerHTML= val * 260 + '元';
+}

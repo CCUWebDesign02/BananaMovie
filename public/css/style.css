@@ -387,7 +387,7 @@ appear:hover .mposition {
     font-size: 28px;
 }
 .movie-title .en {
-    font-size: 24px;
+    font-size: 18px;
 }
 .movie-title img {
     width: 60px;
@@ -421,7 +421,7 @@ appear:hover .mposition {
     font-size: 20px;
 }
 .mdetails .left {
-    width: 35%;
+    width: 100%;
 }
 .mdetails .main-title {
     font-size: 24px;

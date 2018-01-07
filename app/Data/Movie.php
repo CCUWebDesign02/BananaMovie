@@ -52,6 +52,9 @@ class Movie extends DataFactory{
 			}
 		}
 	}
+	public function getTime() {
+		
+	}
 	public static function nowShowing() {
 		$nowShowing = array();
 		$dbFactory = new DataFactory();
