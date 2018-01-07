@@ -33,6 +33,7 @@ $('#pay-btn').click(function(event){
             'ticket_id' : $('select[name="ticket"]').val(), 
             'num' : $('select[name="num"]').val(),
             'next_action' : 'pay',
+            'action': 'add',
             'return_page' : '/cart.php'
         }, 
         'POST');
@@ -43,6 +44,7 @@ $('#addcart-btn').click(function(event){
             'ticket_id' : $('select[name="ticket"]').val(), 
             'num' : $('select[name="num"]').val(),
             'next_action' : 'pay',
+            'action': 'add',
             'return_page' : location.pathname + location.search
         }, 
         'POST');
@@ -73,10 +75,10 @@ function cartCalPrice(ticket_id, val , subPriceTarget) {
     $.post("./addcart.php", 
     {
         'ticket_id' : ticket_id, 
-        'num' : val,
-        'next_action' : 'pay',
+        'num': val,
+        'next_action': 'pay',
         'action': 'update',
-        'return_page' : '/cart.php'
+        'return_page': '/cart.php'
     },
     function (data, status) {
         //$("#myText").text("Data: " + data + " Status: " + status);
