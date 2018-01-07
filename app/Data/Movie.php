@@ -21,7 +21,7 @@ class Movie extends DataFactory{
 
 	public function __construct($id) {
 		parent::__construct();
-		$this->id = $this->getDB()->quote($id);
+		$this->id = $this->getDB()->quote(str_replace("'", "", $id));
 		//$this->id = strstr($this->id, array('_'=> '\_', '%' => '\%'));
 		$this->updateInfo();
 		$this->updateResource();

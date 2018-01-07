@@ -21,15 +21,14 @@
                 <div class="timechartt px-2">時刻表</div>
                 <div class="timechartb p-4">
                     <?php
+                    if($movie_intro_res['time_table']) {
                     $time_table = $movie_intro_res['time_table'];
                     $date_key = array_keys($time_table);
                     for($i = 0; $i < count($date_key); $i++) {
-                        $level1 = $time_table[$i];
                         echo '<div class="date">'. \Tools\Date::strToFormat($date_key[$i], 'm/d') . '</div>';
                         echo '<div class="d-flex flex-column">';
                         $hall_key = array_keys($time_table[$date_key[$i]]);
                         for($j = 0; $j < count($hall_key); $j++) {
-                            $level2 = $level1[$j];
                             echo '<div class="hall mr-5">' . $hall_key[$j] . '廳</div>';
                             echo '<div class="d-flex">';
                             foreach($time_table[$date_key[$i]][$hall_key[$j]] as $val) {
@@ -42,17 +41,36 @@
                             echo '<hr class="my-4">';
                         }
                     }
+                    }
+                    else {
+                        echo '<div>目前無上映場次</div>';
+                    }
                     ?>
                 </div>
             </div>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-1"></div>
+
         <div class="col-md-10 buy-select py-4">
             <div class="row">
                 <div class="pb-2">立即購票</div>
                 <div class="w-100"></div>
-                <div class="px-1">日期:</div>
+                <select class="px-2 ml-1 mr-4" name="ticket">
+                    <?php
+                    //echo count($movie_intro_res['all_tickets']);
+                    for($i = 0; $i < count($movie_intro_res['all_tickets']); $i++) {
+                        $ticket = $movie_intro_res['all_tickets'][$i];
+                        $value = $ticket['id'];
+                        $text = \Tools\Date::strToFormat($ticket['showing_time'], 'Y/m/d H:i');
+                        if(isset($ticket['hall'])) {
+                            $text .= ' ' . $ticket['hall'] . '廳';
+                        }
+                        echo '<option value="' . $value . '">' . $text . '</option>';
+                    }
+                    ?>
+                </select>
+                <!--<div class="px-1">日期:</div>
                 <select class="px-2 ml-1 mr-4">
                     <option value="2018/1/12">2018/1/12</option>
                     <option value="2018/1/12">2018/1/14</option>
@@ -67,9 +85,9 @@
                     <option value="14:40">14:40</option>
                     <option value="18:40">18:40</option>
                     <option value="22:40">22:40</option>
-                </select>
+                </select>-->
                 <div>張數:</div>
-                <select class="px-2 ml-1 mr-4" onchange="calPrice(this.value)">
+                <select class="px-2 ml-1 mr-4" name="num" onchange="calPrice(this.value)">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -81,8 +99,8 @@
         <div class="col-md-1"></div>
         <div class="col-md-6"></div>
         <div class="col-md-6 buy-confirm d-flex justify-content-around align-items-center">
-            <button>立即結帳</button>
-            <button>加入購物車</button>
+            <button id="pay-btn">立即結帳</button>
+            <button id="addcart-btn">加入購物車</button>
             <div id="price">260元</div>
         </div>
     </div>

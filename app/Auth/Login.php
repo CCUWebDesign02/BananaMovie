@@ -3,6 +3,7 @@
 namespace Auth;
 
 use Data\DataFactory;
+use Data\Users;
 
 class Login {
 	private $id;
@@ -19,7 +20,7 @@ class Login {
 		$this->db = $dbFactory->getDB();
 	}
 	public function validate() {
-		$q = $this->db->query("SELECT id, password FROM users WHERE account = '$this->account'");
+		$q = $this->db->query("SELECT id, password, name FROM users WHERE account = '$this->account'");
 		$row = $q->fetch();
 		if($row == null) { //無此帳號
 			return false;
@@ -31,8 +32,10 @@ class Login {
 			$this->grantToken();
 			$this->updateUser();
 			session_start();
+			$user = new \Data\Users($this->id);
 			$_SESSION['user_token'] = $this->token;
-
+			$_SESSION['username'] = $user->name;
+			$_SESSION['user_id'] = $user->id;
 			return true;
 		}
 		return false;

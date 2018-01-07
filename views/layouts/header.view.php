@@ -19,7 +19,15 @@
                         <div class="col-2 logo align-items-center">
                             <a href="/"><img src="imgs/logo.png" alt=""></a>
                         </div>
-                        <div class="col-6"></div>
+                        <div class="col-4"></div>
+                        <div class="col-2 align-self-end pl-5 pr-0">
+                            <?php
+                            if(isset($_SESSION['username'])) {
+                                echo '<button class="btn shopping-cart" onclick="location.href=\'./my_ticket.php\'"><img src="./imgs/my-ticket.png" alt="your shoping cart" /></button>';
+                                echo '<button class="btn shopping-cart" onclick="location.href=\'./cart.php\'"><img src="./imgs/shopping-cart.png" alt="your shoping cart" /></button>';
+                            }
+                            ?>
+                        </div>
                         <div class="col-4 topicon">
                             <div class="row">
                                 <div class="icon">
@@ -30,9 +38,16 @@
                             </ul>
                             </div>
                             </div>
-                            <div class="row">
-                                <button type="button" class="btn btn-top" data-toggle="modal" data-target="#login-popup-box">登入</button>
-                                <button type="button" class="btn btn-top">註冊</button>
+                            <div class="row align-items-center">
+                                <?php
+                                if(isset($_SESSION['username'])) {
+                                    echo '<div class="username"><a href="#">' . $_SESSION['username'] . '</a></div><div class="username ml-2">你好</div>';
+                                    echo '<button class="btn btn-top" onclick="location.href=\'./logout.php\'">登出</button>';
+                                }
+                                else {
+                                    echo '<button type="button" class="btn btn-top" data-toggle="modal" data-target="#login-popup-box">登入</button>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

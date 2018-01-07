@@ -16,7 +16,7 @@ class Ticket extends DataFactory{
 
 	public function __construct($id) {
 		parent::__construct();
-		$this->id = $this->getDB()->quote($id);
+		$this->id = $this->getDB()->quote(str_replace("'", "", $id));
 		//$this->id = strstr($this->id, array('_'=> '\_', '%' => '\%'));
 		$this->updateInfo();
 	}
@@ -24,15 +24,13 @@ class Ticket extends DataFactory{
 	public function updateInfo() {
 		$q = $this->getDB()->query("SELECT * FROM tickets WHERE id = $this->id");
 		$row = $q->fetch();
-
-		$id = $row['id'];
-		$movie_id = $row['movie_id'];
-		$showing_time = $row['showing_time'];
-		$hall = $row['hall'];
-		$quantity = $row['quantity'];
-		$remanded = $row['remanded'];
-		$updated_at = $row['updated_at'];
-		$created_at = $row['created_at'];
+		$this->movie_id = $row['movie_id'];
+		$this->showing_time = $row['showing_time'];
+		$this->hall = $row['hall'];
+		$this->quantity = $row['quantity'];
+		$this->remanded = $row['remanded'];
+		$this->updated_at = $row['updated_at'];
+		$this->created_at = $row['created_at'];
 	}
 
 	public static function getByMovie($movie_id) {

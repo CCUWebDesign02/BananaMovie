@@ -22,7 +22,19 @@ header .row:last-child .col-12 a {
 header .row:last-child .col-12 a:hover {
     color: #188fa7;
 }
-
+header .username {
+    font-size: 1.5rem;
+}
+.shopping-cart {
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+.shopping-cart img{
+  width: 40px;
+}
+.shopping-cart img:hover {
+  width: 50px;
+}
 .logo {
     padding-top: 20px;
 }
@@ -476,3 +488,53 @@ appear:hover .mposition {
     line-height: 1;
 }
 /**/
+
+/**cart**/
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+  vertical-align: middle;
+}
+#cart .img-responsive {
+    width: 135px;
+}
+@media screen and (max-width: 600px) {
+  table#cart tbody td .form-control {
+    width: 20%;
+    display: inline !important;
+  }
+  .actions .btn {
+    width: 36%;
+    margin: 1.5em 0;
+  }
+  .actions .btn-info {
+    float: left;
+  }
+  .actions .btn-danger {
+    float: right;
+  }
+  table#cart thead {
+    display: none;
+  }
+  table#cart tbody td {
+    display: block;
+    padding: .6rem;
+    min-width: 320px;
+  }
+  table#cart tbody tr td:first-child {
+    background: #333;
+    color: #fff;
+  }
+  table#cart tbody td:before {
+    content: attr(data-th);
+    font-weight: bold;
+    display: inline-block;
+    width: 8rem;
+  }
+  table#cart tfoot td {
+    display: block;
+  }
+  table#cart tfoot td .btn {
+    display: block;
+  }
+}
+/***/

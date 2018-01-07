@@ -1,8 +1,8 @@
 <?php
-header('Content-type: application/json');
+//  header('Content-type: application/json');
 require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'environment.php');
 require_once(__DIR__ . '/../autoload.php');
-
+session_start();
 use Auth\Login;
 
 $user = new Login($_POST['account'], $_POST['password']);
@@ -13,5 +13,5 @@ if($user->validate()) {
 else {
 	$array['code'] = 'FAILED';
 }
-
-echo json_encode($array);
+header('Location: .' . $_SERVER[PATH_INFO]);
+//echo json_encode($array);

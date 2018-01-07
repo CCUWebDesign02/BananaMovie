@@ -38,17 +38,15 @@ class Res {
 		$movie = new \Data\Movie($movie_id);
 		$movie_time = \Data\Ticket::getByMovie($movie_id);
 		$time_table = \Data\Res::toTimeTable($movie_time);
-
-		$date = array('date' => '', array('hall' => '', $timeArr));
+		
 		return array(
 			'movie' => $movie,
+			'all_tickets' => $movie_time,
 			'time_table' => $time_table
 		);
-
-		
 	}
 	public static function toTimeTable($movie_time) {
-		$time_table = array();
+		$time_table = null;
 		for($i = 0; $i < count($movie_time); $i++) {
 			$row = $movie_time[$i];
 			$datetime = TDate::toTimeZone(TDate::toDateTime($row['showing_time']));
@@ -80,5 +78,26 @@ class Res {
 		print_r($a);
 		return $a;*/
 		return $time_table;
+	}
+	public static function cart($user_id) {
+		$userCart = \Data\ShoppingCart::getByUserID($user_id);
+		//print_r($userCart);
+		$cart_content = array();
+		for($i = 0; $i < count($userCart); $i++) {
+			$ticket = new \Data\Ticket($userCart[$i]->ticket_id);
+			$movie = new \Data\Movie($ticket->movie_id);
+			$num = $userCart[$i]->num;
+			array_push(
+				$cart_content, 
+				array(
+					'movie' => $movie, 
+					'ticket' => $ticket, 
+					'number' => $num
+				)
+			);
+		}
+		//print_r($cart_content);
+		//echo $cart_content['movie']->poster;
+		return array('cart_content' => $cart_content);
 	}
 }

@@ -5,19 +5,25 @@ use Data\DataFactory;
 
 class Users extends DataFactory{
 
-	public function getUserByID($id) {
-		$q = $this->getDB()->query("SELECT member_name FROM member WHERE member_account = '$id'");
-		$row = $q->fetch();
-		return $row['member_name'];
+	public $id;
+	public $account;
+	public $name;
+	public $email;
+	public $last_loggedin;
+
+	public function __construct($id) {
+		parent::__construct();
+		$this->id = $this->getDB()->quote($id);
+		//$this->id = strstr($this->id, array('_'=> '\_', '%' => '\%'));
+		$this->updateInfo();
 	}
 
-	public function getUserByAccount($account) {
-		$q = $this->getDB()->query("SELECT * FROM users WHERE account = '$account'");
+	public function updateInfo() {
+		$q = $this->getDB()->query("SELECT account, name, email, last_loggedin FROM users WHERE id = $this->id");
 		$row = $q->fetch();
-		return $row;
-	}
-
-	public function insertUser($user) {
-		
+		$this->account = $row['account'];
+		$this->name = $row['name'];
+		$this->email = $row['email'];
+		$this->last_loggedin = $row['last_loggedin'];
 	}
 }
