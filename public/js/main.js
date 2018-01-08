@@ -37,6 +37,15 @@ $('#reg-popup-box .modal-body button').click(function(event){
         }, 
         'POST');
 });
+$('#reset-popup-box .modal-body button').click(function(event){
+    post_to_url('./change_pass.php', 
+        {
+            'old_password': $('#reset-popup-box input[name="old_password"]').val(),
+            'new_password': $('#reset-popup-box input[name="new_password"]').val(),
+            'new_password_confirm': $('#reset-popup-box input[name="new_password_confirm"]').val()
+        }, 
+        'POST');
+});
 $('#pay-btn').click(function(event){
     post_to_url('./addcart.php', 
         {

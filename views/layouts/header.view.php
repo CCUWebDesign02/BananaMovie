@@ -41,7 +41,7 @@
                             <div class="row align-items-center">
                                 <?php
                                 if(isset($_SESSION['username'])) {
-                                    echo '<div class="username"><a href="#">' . $_SESSION['username'] . '</a></div><div class="username ml-2">你好</div>';
+                                    echo '<div class="username"><a href="#" data-toggle="modal" data-target="#reset-popup-box">' . $_SESSION['username'] . '</a></div><div class="username ml-2">你好</div>';
                                     echo '<button class="btn btn-top" onclick="location.href=\'./logout.php\'">登出</button>';
                                 }
                                 else {

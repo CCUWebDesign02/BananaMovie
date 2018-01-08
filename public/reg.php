@@ -12,3 +12,4 @@ $user = array(
 );
 echo $user['password'];
 \Auth\Register::newUser($user);
+header("Location: ./");

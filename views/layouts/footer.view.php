@@ -1,4 +1,4 @@
-<div class="modal fade custom" class="myModal" id="login-popup-box">
+<div class="modal fade custom" id="login-popup-box">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content popbox">
             <div class="modal-header">
@@ -45,7 +45,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade custom" class="myModal" id="reg-popup-box">
+<div class="modal fade custom" id="reg-popup-box">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content popbox">
             <div class="modal-header">
@@ -90,6 +90,53 @@
                             </div>
                             <div class="row justify-content-center mb-2">
                                 <button type="button" class="col-8 login-btn">註冊</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custom" id="reset-popup-box">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content popbox">
+            <div class="modal-header">
+                <h1 class="col-12 text-center mt-3" id="hi">修改密碼</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="my-auto row justify-content-center">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">舊密碼</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" type="password" name="old_password" />
+                                            </div>
+                                        </div>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">新密碼</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" type="password" name="new_password" />
+                                            </div>
+                                        </div>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">新密碼</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" placeholder = "再次確認" type="password" name="new_password_confirm" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mb-2">
+                                <button type="button" class="col-8 login-btn">送出</button>
                             </div>
                         </div>
                     </div>

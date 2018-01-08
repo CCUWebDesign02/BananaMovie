@@ -325,6 +325,55 @@ footer a {
     cursor: pointer;
 }
 
+#reset-popup-box .popbox {
+    border-style: solid;
+    background-color: rgb(242, 242, 242);
+}
+
+#reset-popup-box .wrapper {
+    border-style: solid;
+    border-color: rgb(208, 206, 206);
+    color: gray;
+    background-color: white;
+}
+
+#reset-popup-box input {
+    border-style: none;
+    outline: none;
+}
+
+#reset-popup-box .popbox a {
+    color: rgb(255, 0, 0);
+}
+
+#reset-popup-box .login-btn {
+    background-color: rgb(255, 195, 5);
+    border-color: rgb(208, 206, 206);
+    border-style: solid;
+    border-size: 1px;
+    color: white;
+    cursor: pointer;
+}
+
+#reset-popup-box .modal-dialog .modal-content {
+    background-color: rgb(242, 242, 242);
+    border-style: solid;
+    border-color: rgb(208, 206, 206);
+    border-width: 3px;
+    border-radius: 0;
+}
+
+#reset-popup-box .modal-dialog .modal-header {
+    border-style: none;
+}
+
+#reset-popup-box .modal-dialog .close {
+    position: relative;
+    top: 0rem;
+    left: -2rem;
+    cursor: pointer;
+}
+
 #aboutrow {
     padding: 0px 40px;
 }
