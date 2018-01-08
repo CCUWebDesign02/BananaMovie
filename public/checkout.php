@@ -6,4 +6,4 @@ session_start();
 use \Data\Order;
 \Data\Order::pay($_SESSION['user_id']);
 
-header('Location: ./index.php');
+header('Location: ./my_ticket.php');

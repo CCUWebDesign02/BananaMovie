@@ -26,4 +26,13 @@ class Users extends DataFactory{
 		$this->email = $row['email'];
 		$this->last_loggedin = $row['last_loggedin'];
 	}
+
+	public static function getByAccount($account) {
+		$dbFactory = new \Data\DataFactory();
+		$db = $dbFactory->getDB();
+
+		$q = $db->query("SELECT id FROM users WHERE account = '$account'");
+
+		return $q->fetch();
+	}
 }

@@ -1,4 +1,4 @@
-<div class="modal fade custom" id="login-popup-box">
+<div class="modal fade custom" class="myModal" id="login-popup-box">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content popbox">
             <div class="modal-header">
@@ -36,7 +36,60 @@
                                 <button type="button" class="col-8 login-btn">登入</button>
                             </div>
                             <div class="row mb-5">
-                                <a href="" class="col-12 text-center">註冊</a>
+                                <a href="" data-toggle="modal" data-target="#reg-popup-box" class="col-12 text-center" onclick="$('#login-popup-box').modal('hide')">註冊</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custom" class="myModal" id="reg-popup-box">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content popbox">
+            <div class="modal-header">
+                <h1 class="col-12 text-center mt-3" id="hi">註冊</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="my-auto row justify-content-center">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">帳號</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" type="text" name="account" />
+                                            </div>
+                                        </div>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">密碼</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" type="password" name="password" />
+                                            </div>
+                                        </div>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">姓名</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" type="username" name="username" />
+                                            </div>
+                                        </div>
+                                        <div class="row wrapper mb-2 py-1">
+                                            <div class="col-4">信箱</div>
+                                            <div class="col-8 p-0">
+                                                <input class="col-11 p-0" type="email" name="email" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mb-2">
+                                <button type="button" class="col-8 login-btn">註冊</button>
                             </div>
                         </div>
                     </div>

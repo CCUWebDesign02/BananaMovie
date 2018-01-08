@@ -22,8 +22,18 @@ function post_to_url(path, params, method) {
 $('#login-popup-box .modal-body button').click(function(event){
     post_to_url('./login.php', 
         {
-            'account' : $('input[name="account"]').val(), 
-            'password' : $('input[name="password"]').val()
+            'account' : $('#login-popup-box input[name="account"]').val(), 
+            'password' : $('#login-popup-box input[name="password"]').val()
+        }, 
+        'POST');
+});
+$('#reg-popup-box .modal-body button').click(function(event){
+    post_to_url('./reg.php', 
+        {
+            'account': $('#reg-popup-box input[name="account"]').val(), 
+            'password': $('#reg-popup-box input[name="password"]').val(),
+            'username': $('#reg-popup-box input[name="username"]').val(),
+            'email': $('#reg-popup-box input[name="email"]').val()
         }, 
         'POST');
 });
@@ -90,7 +100,13 @@ function cartCalPrice(ticket_id, val , subPriceTarget) {
 $(document).ready(function () {
     $("#search").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#searched-item div, #searched-item a").filter(function () {
+        /*$("#searched-item .media-body").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        $("#searched-item div").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });*/
+        $("#searched-item ").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

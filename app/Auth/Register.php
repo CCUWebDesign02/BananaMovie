@@ -13,8 +13,10 @@ class Register {
 			return false;
 		}
 		$account = $user['account'];
+		echo $user['account'];
 		$name = $user['name'];
 		$email = $user['email'];
+		
 		
 		$password_hash = password_hash($user['password'], PASSWORD_DEFAULT);
 		$now = new \DateTime("now", new \DateTimeZone("UTC"));
@@ -26,15 +28,16 @@ class Register {
 		return true;
 	}
 	private static function validate($user) {
-		$userFactory = new Users();
-		if($userFactory->getUserByAccount($user['account']) != null) {
-			//echo "Account exists!";
+		if(\Data\Users::getByAccount($user['account']) != null) {
+			echo "Account exists!";
 			return false;
 		}
 		if(strlen($user['password']) < SR_PASSLENGTH) {
+			echo '2';
 			return false;
 		}
 		if(!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
+			echo '3';
 			return false;
 		}
 		return true;

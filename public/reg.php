@@ -5,9 +5,10 @@ session_start();
 use \Auth\Register;
 
 $user = array(
-	'account' => 'hihi',
-	'password' => '123456', //密碼長度>=6
-	'name' => 'nana',
-	'email' => 'nana@example.com'
+	'account' => $_POST['account'],
+	'password' => $_POST['password'], //密碼長度>=6
+	'name' => $_POST['username'],
+	'email' => $_POST['email']
 );
+echo $user['password'];
 \Auth\Register::newUser($user);
