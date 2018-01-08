@@ -4,7 +4,9 @@ require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'envir
 require_once(__DIR__ . '/../autoload.php');
 session_start();
 use Auth\Login;
-
+if(isset($_SESSION['user_id'])) {
+	header("Location: ./");
+}
 $user = new Login($_POST['account'], $_POST['password']);
 $array = array('code' => '');
 if($user->validate()) {

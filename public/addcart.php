@@ -3,6 +3,9 @@
 require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'environment.php');
 require_once(__DIR__ . '/../autoload.php');
 session_start();
+if(isset($_SESSION['user_id'])) {
+	header("Location: ./");
+}
 use \Data\ShoppingCart;
 //echo $_SESSION['user_id'], $_POST['ticket_id'], $_POST['num'];
 if(isset($_SESSION['user_id'])) {
