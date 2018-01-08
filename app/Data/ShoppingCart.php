@@ -19,8 +19,7 @@ class ShoppingCart extends DataFactory{
 	public function updateInfo() {
 		$q = $this->getDB()->query("SELECT * FROM shopping_cart WHERE user_id = $this->user_id AND ticket_id = $this->ticket_id");
 		$row = $q->fetch();
-		if($row == null) echo 'FUCK';
-		return;
+		if($row == null) return;
 		$this->num = $row['num'];
 		$this->created_at = $row['created_at'];
 	}
@@ -41,7 +40,7 @@ class ShoppingCart extends DataFactory{
 	}
 	public function add($num) {
 		if($num < 0) return false;
-		if($this->num >= 0) {
+		if(isset($this->num) && $this->num >= 0) {
 			$after_num = $this->num + $num;
 			$this->getDB()->exec("UPDATE shopping_cart SET num = $after_num WHERE user_id = $this->user_id AND ticket_id = $this->ticket_id");
 		}
