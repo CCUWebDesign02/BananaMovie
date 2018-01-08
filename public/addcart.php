@@ -18,7 +18,7 @@ if(isset($_SESSION['user_id'])) {
 		header('Location: ./cart.php');
 	}
 	else {
-		header('Location: ' . $_POST['return_page']);
+		//header('Location: ' . $_POST['return_page']);
 	}
 }
 else {
