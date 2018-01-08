@@ -1,6 +1,9 @@
 <div class="container">
     <div class="row justify-content-center">
     	<?php
+        if(!isset($my_ticket_res['orders'])) {
+            echo '<div>您目前沒有購買票卷歐</div>';
+        }
     	foreach ($my_ticket_res['orders'] as $orders) {
     		$ticket = new \Data\Ticket($orders['ticket_id']);
     		$movie = new \Data\Movie($ticket->movie_id);

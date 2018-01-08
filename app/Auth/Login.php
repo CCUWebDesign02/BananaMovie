@@ -36,6 +36,7 @@ class Login {
 			$_SESSION['user_token'] = $this->token;
 			$_SESSION['username'] = $user->name;
 			$_SESSION['user_id'] = $user->id;
+			$_SESSION['user_account'] = $user->account;
 			return true;
 		}
 		return false;

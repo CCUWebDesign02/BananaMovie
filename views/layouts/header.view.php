@@ -72,6 +72,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link px-5" href="about_us.php">影城資訊</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-5" href="customer_services.php">聯絡我們</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
