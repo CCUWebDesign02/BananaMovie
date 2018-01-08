@@ -87,3 +87,11 @@ function cartCalPrice(ticket_id, val , subPriceTarget) {
         //console.log(data[code])
     });
 }
+$(document).ready(function () {
+    $("#search").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#searched-item div, #searched-item a").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});

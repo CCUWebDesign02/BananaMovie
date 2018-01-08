@@ -144,11 +144,6 @@ header .username {
     padding: 45px 0px;
 }
 
-.now-release>div>img {
-    width: 280px;
-    height: 400px;
-}
-
 .titlebar {
     font-size: 28px;
 }
@@ -171,25 +166,19 @@ header .username {
 }
 
 .now-release .media img {
-    width: 110px;
+    width: 40%;
 }
 .now-release a[href] img, .future-release a[href] img {
-    width: 270px;
-    height: 400px;
+    width: 100%;
 }
 
 .now-release .media-body {
     padding-left: 20px;
-    font-size: 24px;
+    font-size: 1.3em;
 }
 
 .future-release {
     font-size: 20px;
-}
-
-.future-release img {
-    width: 280px;
-    height: 400px;
 }
 
 .future-release .movie-title {
