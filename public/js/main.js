@@ -45,7 +45,7 @@ $('#addcart-btn').click(function(event){
             'num' : $('select[name="num"]').val(),
             'next_action' : 'none',
             'action': 'add',
-            'return_page' : location.pathname + location.search
+            'return_page' : location.href
         }, 
         'POST');
 });
