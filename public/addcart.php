@@ -4,7 +4,6 @@ require_once(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'envir
 require_once(__DIR__ . '/../autoload.php');
 session_start();
 use \Data\ShoppingCart;
-echo $_SESSION['user_id'] . $_POST['ticket_id'] . $_POST['num'] . $_SERVER['PATH_INFO'];
 
 if(isset($_SESSION['user_id'])) {
 	$act = new \Data\ShoppingCart($_SESSION['user_id'], $_POST['ticket_id']);

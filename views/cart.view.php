@@ -25,7 +25,7 @@
                           <div class="col-sm-1"></div>
                           <div class="col-sm-8 align-self-center">
                               <h4 class="nomargin">' . $movie->zh_name . '</h4>
-                              <p>場次: ' . \Tools\Date::strToFormat($ticket->showing_time, 'Y/m/d H:i') . ' 座位:自由入座</p>
+                              <p>場次: ' . \Tools\Date::toFormat(\Tools\Date::toTimeZone(\Tools\Date::toDateTime($ticket->showing_time)), 'Y/m/d H:i') . ' 座位:自由入座</p>
                           </div>
                       </div>
                   </td>

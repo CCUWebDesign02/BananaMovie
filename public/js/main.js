@@ -42,7 +42,7 @@ $('#addcart-btn').click(function(event){
         {
             'ticket_id' : $('select[name="ticket"]').val(), 
             'num' : $('select[name="num"]').val(),
-            'next_action' : 'pay',
+            'next_action' : 'none',
             'return_page' : location.pathname + location.search
         }, 
         'POST');
