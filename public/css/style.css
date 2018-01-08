@@ -538,3 +538,12 @@ appear:hover .mposition {
   }
 }
 /***/
+.my-ticket .img-responsive {
+  width: 135px;
+}
+.my-ticket:nth-child(even){
+  border: 2px solid #7FB7BE;
+}
+.my-ticket:nth-child(odd){
+  border: 2px solid #f05d5e;
+}

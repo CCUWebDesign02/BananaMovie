@@ -52,7 +52,7 @@
                 <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                 <td colspan="2" class="hidden-xs"></td>
                 <td class="hidden-xs text-center"><strong>Total NT$ <text id="Total2"><?php echo $total_price; ?></text></strong></td>
-                <td><a href="#" class="btn btn-success btn-block">結帳 <i class="fa fa-angle-right"></i></a></td>
+                <td><a href="./checkout.php" class="btn btn-success btn-block">結帳 <i class="fa fa-angle-right"></i></a></td>
             </tr>
         </tfoot>
     </table>

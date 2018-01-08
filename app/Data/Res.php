@@ -6,6 +6,7 @@ use Data\DataFactory;
 use Data\Movie;
 use Data\Tikcet;
 use Tools\Date as TDate;
+use Data\Order;
 
 class Res {
 	public static function index() {
@@ -99,5 +100,11 @@ class Res {
 		//print_r($cart_content);
 		//echo $cart_content['movie']->poster;
 		return array('cart_content' => $cart_content);
+	}
+
+	public static function my_ticket($user_id) {
+		$orders = \Data\Order::getByUserID($user_id);
+
+		return array('orders' => $orders);
 	}
 }

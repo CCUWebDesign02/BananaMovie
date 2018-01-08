@@ -24,5 +24,8 @@ class Date {
 	public static function strToFormat($str, $format) {
 		return \Tools\Date::toFormat(\Tools\Date::toDateTime($str), $format);
 	}
+	/*public static function toTimeZoneStr($datetime) {
+
+	}*/
 
 }

@@ -10,11 +10,11 @@ if(isset($_SESSION['user_id'])) {
 	
 	if(strcasecmp($_POST['action'], 'update') == 0) {
 		$act->update($_POST['num']);
-		echo 'V' . $_POST['num'];
+		//echo 'V' . $_POST['num'];
 	}
 	else {
 		$act->add($_POST['num']);
-		echo 'S' . $_POST['num'];
+		//echo 'S' . $_POST['num'];
 	}
 	if(strcasecmp($_POST['next_action'], 'pay') == 0) {
 		header('Location: ./cart.php');

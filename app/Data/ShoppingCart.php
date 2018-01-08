@@ -53,4 +53,8 @@ class ShoppingCart extends DataFactory{
 		if($num < 0) return false;
 		$this->getDB()->exec("UPDATE shopping_cart SET num = $num WHERE user_id = $this->user_id AND ticket_id = $this->ticket_id");
 	}
+	public function delete() {
+		$this->getDB()->exec("DELETE FROM shopping_cart WHERE user_id = $this->user_id AND ticket_id = $this->ticket_id");
+		$this->__destruct();
+	}
 }
