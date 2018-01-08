@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-2 logo align-items-center">
-                            <a href="/"><img src="imgs/logo.png" alt=""></a>
+                            <a href="/"><img src="./imgs/logo.png" alt=""></a>
                         </div>
                         <div class="col-4"></div>
                         <div class="col-2 align-self-end pl-5 pr-0">
